@@ -21,6 +21,8 @@
 
   --font-sans: 'Inter Tight', ui-sans-serif, system-ui, sans-serif;
   --font-serif: 'Instrument Serif', ui-serif, Georgia, serif;
+  /* Arabic: Alexandria, a geometric low-contrast Arabic that sits with Inter Tight. */
+  --font-ar: 'Alexandria', var(--font-sans);
 
   --gutter: clamp(16px, 4vw, 56px);
   --max: 1440px;
@@ -168,7 +170,8 @@ img, svg, canvas { display: block; }
   color: var(--paper);
   will-change: transform, opacity;
 }
-.preloader__name span { display: inline-block; }
+.preloader__name { display: flex; flex-direction: column; align-items: center; }
+.preloader__name > span { display: block; }
 .preloader__mark { position: relative; width: 84px; height: 84px; color: var(--paper); will-change: transform; }
 .preloader__mark svg { width: 100%; height: 100%; }
 .preloader__count {
@@ -719,3 +722,25 @@ img, svg, canvas { display: block; }
 
 /* "Obzervo" in running copy, set exactly like the header wordmark. */
 .brand-word { font-family: var(--font-sans); font-style: normal; font-weight: 500; letter-spacing: -0.035em; }
+
+/* ---------- Arabic accents ---------- */
+/* Arabic letters join, so it never takes the Latin text's negative tracking; it also needs
+   more line height for its marks above and below the letters. */
+.ar { font-family: var(--font-ar); font-style: normal; font-weight: 300; letter-spacing: 0; line-height: 1.6; unicode-bidi: isolate; }
+
+.hero__ar { margin: 20px 0 0; font-size: clamp(20px, 2vw, 30px); line-height: 1.4; color: rgba(243, 246, 247, 0.92); text-shadow: 0 1px 2px rgba(2, 7, 10, 0.35), 0 2px 24px rgba(2, 7, 10, 0.55); }
+.hero__ar .ar { font-weight: 200; }
+.hero__ar + .hero__sub { margin-top: 14px; }
+
+.marquee__item .ar { font-size: 1.05em; line-height: 1; color: var(--orange-soft); }
+
+.manifesto__foot > :first-child { display: flex; flex-direction: column; gap: 8px; }
+.manifesto__ar { font-size: 15px; color: var(--text-2); }
+
+.step-card__ar { display: block; text-align: left; margin-top: 12px; font-size: 0.34em; line-height: 1.3; color: var(--orange-soft); }
+
+.prism__finale { flex-direction: column; align-items: center; }
+.prism__ar { margin: 0 0 12px; font-size: clamp(20px, 1.8vw, 26px); line-height: 1.4; color: var(--text); }
+
+.contact__ar { margin: 0 0 18px; text-align: center; font-size: clamp(22px, 2.2vw, 34px); line-height: 1.3; color: var(--orange); }
+

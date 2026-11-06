@@ -2,6 +2,7 @@ import { useLayoutEffect, useRef } from 'react'
 import { gsap } from '../lib/scroll'
 import { Reveal } from '../components/Reveal'
 import { BrandWord } from '../components/Logo'
+import { Ar } from '../components/Arabic'
 
 // Words light up one by one as the paragraph scrolls through the viewport.
 const TEXT: { w: string; serif?: boolean }[] = [
@@ -42,7 +43,10 @@ export function Manifesto() {
           ))}
         </p>
         <div className="manifesto__foot">
-          <Reveal><span className="label muted">We observe. AI creates. We engineer the result.</span></Reveal>
+          <Reveal>
+            <span className="label muted">We observe. AI creates. We engineer the result.</span>
+            <span className="manifesto__ar"><Ar>نتأمّل. الذكاء يصنع. ونحن نهندس النتيجة.</Ar></span>
+          </Reveal>
           <Reveal delay={0.1}>
             <p>
               <BrandWord /> is the layer between your business and AI. We don’t just use it — we direct it, with a

@@ -1,6 +1,7 @@
 import { Reveal } from '../components/Reveal'
 import { Button } from '../components/Button'
 import { BrandWord, Wordmark } from '../components/Logo'
+import { Ar } from '../components/Arabic'
 
 // TODO: replace placeholder contact details with the real ones.
 const EMAIL = 'hello@obzervo.com'
@@ -10,6 +11,9 @@ export function Contact() {
     <section className="contact" id="contact">
       <div className="contact__glow" />
       <div className="container">
+        <Reveal>
+          <p className="contact__ar"><Ar>خلّينا نحكي</Ar></p>
+        </Reveal>
         <Reveal>
           <h2 className="contact__title">
             Let’s look closely
@@ -37,7 +41,7 @@ export function Contact() {
               <div>
                 <Wordmark />
                 <p className="muted" style={{ maxWidth: 280, marginTop: 16 }}>
-                  AI creative design &amp; engineering studio. Gulf &amp; Arab region, working worldwide.
+                  AI creative design &amp; engineering studio, based in Palestine.
                 </p>
               </div>
               <div>
@@ -68,7 +72,7 @@ export function Contact() {
             <p className="footer__big" aria-hidden="true">Obzervo</p>
           </div>
           <div className="footer__bottom label">
-            <span>© {new Date().getFullYear()} <BrandWord /></span>
+            <span>© {new Date().getFullYear()} <BrandWord /> · <Ar>صُنع في فلسطين</Ar></span>
             <span>We observe. AI creates. We engineer the result.</span>
           </div>
         </div>

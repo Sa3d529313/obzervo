@@ -1,24 +1,29 @@
 import { useLayoutEffect, useRef } from 'react'
 import { gsap } from '../lib/scroll'
+import { Ar } from '../components/Arabic'
 
 const STEPS = [
   {
     title: 'Observe',
+    ar: 'نتأمّل',
     body: 'We study the company — product, audience, market, and exactly what it’s doing wrong with AI today.',
     visual: 'observe',
   },
   {
     title: 'Define',
+    ar: 'نُحدّد',
     body: 'A clear identity: visual character, palette, typography, tone, and the rules for what the brand looks and feels like.',
     visual: 'define',
   },
   {
     title: 'Engineer',
+    ar: 'نُهندس',
     body: 'That identity becomes an AI system — prompts, styles, references and workflows that output on-brand work every time.',
     visual: 'engineer',
   },
   {
     title: 'Deliver',
+    ar: 'نُسلّم',
     body: 'Brand visuals, product imagery, campaign content and a custom-engineered website. All AI-made. All unmistakably you.',
     visual: 'deliver',
   },
@@ -123,7 +128,9 @@ export function Method() {
               </div>
               <StepVisual kind={s.visual} />
               <div>
-                <h3>{s.title}</h3>
+                <h3>
+                  {s.title} <Ar className="step-card__ar">{s.ar}</Ar>
+                </h3>
                 <p>{s.body}</p>
               </div>
             </article>

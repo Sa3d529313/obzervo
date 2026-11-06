@@ -4,6 +4,7 @@ import { brandTileBg } from '../lib/brand'
 import { Button } from '../components/Button'
 import { LogoMark } from '../components/Logo'
 import { HeroShader } from './HeroShader'
+import { Ar } from '../components/Arabic'
 
 const STEPS = ['Observe', 'Define', 'Engineer', 'Deliver']
 
@@ -106,7 +107,7 @@ export function Hero({ ready }: { ready: boolean }) {
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       gsap.set('.hero__title .line-mask > span', { yPercent: 115 })
-      gsap.set(['.hero__caption', '.hero__sub', '.hero__ctas'], { opacity: 0, y: 30 })
+      gsap.set(['.hero__caption', '.hero__ar', '.hero__sub', '.hero__ctas'], { opacity: 0, y: 30 })
       gsap.set('.dock-card', { opacity: 0, y: 120 })
       // Hidden from the first frame, so the intro fades it in instead of snapping it out and back.
       gsap.set('.hero__bg', { opacity: 0 })
@@ -126,7 +127,7 @@ export function Hero({ ready }: { ready: boolean }) {
       tl.to('.hero__bg', { opacity: 1, duration: 2.2 }, 0)
         .to('.hero__caption', { opacity: 1, y: 0, duration: 1.2 }, 0.9)
         .to('.hero__title .line-mask > span', { yPercent: 0, duration: 1.4, stagger: 0.09 }, 0.2)
-        .to(['.hero__sub', '.hero__ctas'], { opacity: 1, y: 0, duration: 1.2, stagger: 0.08 }, 0.5)
+        .to(['.hero__ar', '.hero__sub', '.hero__ctas'], { opacity: 1, y: 0, duration: 1.2, stagger: 0.08 }, 0.45)
         .to('.dock-card', { opacity: 1, y: 0, duration: 1.6, stagger: 0.1 }, 0.75)
     }, root)
     return () => ctx.revert()
@@ -151,6 +152,7 @@ export function Hero({ ready }: { ready: boolean }) {
           <span className="line-mask"><span>Your AI, finally</span></span>
           <span className="line-mask"><span><span className="serif">on-brand.</span></span></span>
         </h1>
+        <p className="hero__ar"><Ar>ذكاؤك الاصطناعي، أخيرًا يشبهك.</Ar></p>
         <p className="hero__sub">
           We observe your business, then direct AI to build an identity, visuals and a website that look
           unmistakably like you. Every time.

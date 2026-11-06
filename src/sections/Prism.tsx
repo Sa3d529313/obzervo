@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect, useLayoutEffect, useRef, useState, type Reac
 import { gsap } from '../lib/scroll'
 import { BrandWord } from '../components/Logo'
 import { LiquidGlassLogo, type LiquidGlassLogoHandle } from '../components/liquid-glass-logo'
+import { Ar } from '../components/Arabic'
 
 const PrismScene = lazy(() => import('./PrismScene'))
 
@@ -135,6 +136,7 @@ export function Prism() {
         </div>
 
         <div className="prism__finale">
+          <p className="prism__ar"><Ar>العين قبل الأداة.</Ar></p>
           <p className="prism__body">
             Anyone can generate. We look closely first — then direct every output until it’s unmistakably yours.
           </p>

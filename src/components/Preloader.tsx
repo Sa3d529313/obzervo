@@ -1,6 +1,7 @@
 import { useCallback, useLayoutEffect, useRef } from 'react'
 import { gsap } from '../lib/scroll'
 import { LogoMark } from './Logo'
+import { Ar } from './Arabic'
 import { LiquidGlassLogo } from './liquid-glass-logo'
 
 type Props = {
@@ -44,7 +45,7 @@ export function Preloader({ onReveal, onDone }: Props) {
     const gap = size * NAME_GAP
     gsap.set(mark.current, { width: size, height: size, opacity: 0 })
     gsap.set(name.current, { fontSize: Math.max(24, size * 0.24), opacity: 0 })
-    gsap.set('.preloader__name span', { yPercent: 110 })
+    gsap.set('.preloader__name > span', { yPercent: 110 })
     // Mark and name sit as one centred pair: the mark lifts by half the name's height (plus gap).
     const lift = () => -(gap + name.current!.offsetHeight) / 2
 
@@ -71,7 +72,7 @@ export function Preloader({ onReveal, onDone }: Props) {
         .to(glass.current, { opacity: 0, duration: 0.15, ease: 'none' }, GLASS_END)
         .to(mark.current, { rotate: 120, y: lift, duration: 1.1, ease: 'expo.inOut' }, SPIN)
         .set(name.current, { y: () => size / 2 + lift() + gap, opacity: 1 }, SPIN)
-        .to('.preloader__name span', { yPercent: 0, duration: 1, ease: 'expo.out' }, SPIN + 0.35)
+        .to('.preloader__name > span', { yPercent: 0, duration: 1, ease: 'expo.out' }, SPIN + 0.35)
         .to(name.current, { opacity: 0, filter: 'blur(6px)', duration: 0.4, ease: 'power2.in' }, NAME_OUT)
         .add(() => onReveal(), FLY + 0.05)
         // A transform slide (GPU-composited) instead of a clip-path wipe, which had to repaint
@@ -105,7 +106,7 @@ export function Preloader({ onReveal, onDone }: Props) {
   return (
     <div className="preloader" ref={root}>
       <div className="preloader__curtain" ref={curtain}>
-        <span className="preloader__word">Observing</span>
+        <span className="preloader__word">Observing <Ar>· نتأمّل</Ar></span>
         <span className="preloader__count" ref={count}>000</span>
       </div>
       <div className="preloader__glass" ref={glass}>
